@@ -1,5 +1,8 @@
 package questions;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.function.Predicate;
 
@@ -267,4 +270,291 @@ class Phones {
        // System.out.println(s1 +":"+f1); // 10
 }
 
+//ME-Q47
+    class Q47 {
+    public static void main(String[] args) {
 
+        int a = 10;
+        for (; a <= 20; ++a) {
+            System.out.println("a = " + a);
+            if (a % 3 == 0) {
+                a++;
+            }
+            else if (a % 2 == 0) {
+                a = a * 2;
+
+            }
+            System.out.println(a);
+        }
+        System.out.println("a at the end = " + a);
+    }
+}
+
+class Practice {
+    public static void main(String[] args) {
+        for (int i = 0; i <= 3; ++i) {
+
+            for (int j = 0; j < 3; j++)
+
+                System.out.println("i = " + i + " : j = " + j);
+        }
+    }
+}
+
+//ME-Q50
+class Op {
+    public static void main(String... args) {
+        int a = 0;
+        int b = 100;
+        Predicate<Integer> compare = (var) -> var++ == 10;
+        if (!(b++ > 100) && compare.test(a)) {
+            System.out.println(a + b);
+        } else System.out.println("no output");
+    }
+}
+
+//ME-Q52
+class Phone {
+    void call() {
+        System.out.println("Call-Phone");
+    }
+}
+class SmartPhone extends Phone{
+    void call() {
+        System.out.println("Call-SmartPhone");
+    }
+}
+class TestPhones {
+    public static void main(String[] args) {
+        Phone phone = new Phone();
+        Phone smartPhone = new SmartPhone();
+        phone.call();
+        smartPhone.call();
+    }
+}
+
+//ME-Q53
+class Phone3 {
+    String keyboard = "in-built";
+    void picture()
+    { System.out.println("phone method");
+    }
+}
+class Tablet extends Phone3 {
+    boolean playMovie = false;
+    void picture() {
+        System.out.println("tablet method");
+    }
+}
+class College2 {
+    public static void main(String args[]) {
+        Phone3 phone = new Tablet();
+        Tablet tablet = new Tablet();
+        Phone3 phone1 = new Phone3();
+//        Tablet tablet1 = new Phone3();
+        System.out.println(phone.keyboard + ":" + ((Tablet)phone).playMovie);
+        System.out.println(tablet.keyboard + ":" + tablet.playMovie);
+//        System.out.println(phone1.keyboard + ":" + ((Tablet)phone1).playMovie);
+        phone.picture();
+        tablet.picture();
+        phone1.picture();
+    }
+}
+
+//ME-Q54
+class Wall {
+    public static void main(String args[]) {
+        double area = 10.98;
+        String color;
+        if (area < 5)
+            color = "red";
+//        if (area >= 5)
+          else   color = "blue";
+        System.out.println(color);
+    }
+}
+
+//ME-Q55
+class Diary {
+    int pageCount = 100;
+    int getPageCount() {
+        return pageCount;
+    }
+    void setPageCount(int val) {
+        pageCount = val;
+    }
+}
+
+class ClassRoom {
+    public static void main(String args[]) {
+        System.out.println(new Diary().getPageCount());
+        new Diary().setPageCount(200);
+        Diary diary = new Diary();
+        diary.setPageCount(200);
+        System.out.println(new Diary().getPageCount());
+        System.out.println(diary.getPageCount());
+    }
+}
+
+//ME-Q56
+class Shopping {
+    public static void main(String args[]) {
+        boolean bankrupt = true;
+        do {
+            System.out.println("enjoying shopping");
+            bankrupt = false;
+    } while (!bankrupt);
+    }
+}
+
+//ME-Q58
+class Laptop2 {
+    String memory = "1GB";
+}
+class Workshop2 {
+    public static void main(String args[]) {
+        Laptop2 life = new Laptop2();
+        repair(life);
+        System.out.println(life.memory);
+    }
+    public static void repair(Laptop2 laptop) {
+        laptop = new Laptop2();
+        laptop.memory = "2GB";
+    }
+}
+
+//ME-Q59
+interface Roamable{}
+class Phone4 {}
+class Tablet2 extends Phone4 implements Roamable {
+//    Roamable var = new Phone4();  -- would need to cast Phone to Roamable
+//    Roamable var = (Roamable)Phone4();  -- would compile if you inserted "new"
+    Roamable var = (Roamable)new Phone4(); //compiles, but will create a ClassCastException at runtime
+}
+
+//ME-Q60
+class Paper {
+    Paper() {
+        this(10);
+        System.out.println("Paper:0");
+    }
+    Paper(int a) { System.out.println("Paper:1"); }
+}
+class PostIt extends Paper {}
+class TestPostIt {
+    public static void main(String[] args) {
+        PostIt paper = new PostIt();
+    }
+}
+
+//ME-Q62
+interface Jumpable {
+    int height = 1;
+    default void worldRecord() {
+        System.out.print(height);
+    }
+}
+interface Moveable2 {
+    int height = 2;
+    static void worldRecord() {
+        System.out.print(height);
+    }
+}
+class Chair implements Jumpable, Moveable2 {
+    int height = 3;
+
+    Chair() {
+        worldRecord();
+    }
+
+    public static void main(String args[]) {
+        Jumpable j = new Chair();
+        Moveable2 m = new Chair();
+        Chair c = new Chair();
+        Moveable2.worldRecord();
+    }
+}
+
+    //ME-Q64
+    class Person10 {
+        Person10 (){}
+        Person10(String value) {}
+    }
+class Employee extends Person10 {}
+class Test {
+    public static void main(String args[]) {
+        Employee e = new Employee();
+    }
+}
+
+//ME-Q68
+class EMyMethods {
+    static String name = "m1";
+    void riverRafting() {
+        String nameq = "m2";
+        if (8 > 2) {
+            String name = "m3";
+            System.out.println(name);
+        }
+    }
+    public static void main(String[] args) {
+        EMyMethods m1 = new EMyMethods();
+        m1.riverRafting();
+    }
+}
+
+//ME-Q70
+class SwJava {
+    public static void main(String args[]) {
+        String[] shapes = {"Circle", "Square", "Triangle"};
+        for (int i = 0; i < shapes.length; i++)
+        switch (shapes[i]) {
+            case "Square": System.out.println("Circle"); break;
+            case "Triangle": System.out.println("Square"); break;
+            case "Circle": System.out.println("Triangle"); break;
+        }
+    }
+}
+
+//ME-Q73
+class Course {
+    static int enrollments;
+}
+class TestEJavaCourse {
+    public static void main(String args[]) {
+        Course c1 = new Course();
+        Course c2 = new Course();
+        Course c3 = new Course();
+        c1.enrollments = 100;
+        c2.enrollments = 200;
+        c3.enrollments = 300;
+        System.out.println(c1.enrollments + c2.enrollments);
+    }
+}
+
+//ME-Q74
+class Q74 {
+    public static void main(String[] args) {
+        String ejgStr[] = new String[][]{{null},new String[]{"a","b","c"},{new
+                String()}}[0] ;
+        String ejgStr1[] = null;
+        String ejgStr2[] = {null};
+        System.out.println(ejgStr[0]);
+        System.out.println(ejgStr2[0]);
+        System.out.println(ejgStr1[0]);
+    }
+}
+
+//ME-Q75
+class Person11 {}
+class Emp extends Person {}
+class TestArrayList {
+    public static void main(String[] args) {
+        ArrayList<Object> list = new ArrayList<>();
+        list.add(new String("1234")); //LINE1
+        list.add(new Person()); //LINE2
+        list.add(new Emp()); //LINE3
+        list.add(new String[]{"abcd", "xyz"}); //LINE4
+        list.add(LocalDate.now().plusDays(1)); //LINE5
+    }
+}
