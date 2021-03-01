@@ -558,3 +558,61 @@ class TestArrayList {
         list.add(LocalDate.now().plusDays(1)); //LINE5
     }
 }
+
+class FeedingSchedule {
+public static void main(String[] args) {
+       int x = 5, j = 0;
+       OUTER: for(int i=0; i<3; )
+
+            INNER: do {
+                System.out.println("x = " + x + " j = " + j + " i = " + i);
+            i++; x++;
+            if(x > 10) break INNER;
+            x += 4;
+            j++;
+            } while(j <= 2);
+        System.out.println(x);
+        } }
+
+class Deer {
+    public Deer() {
+        System.out.print("Deer");
+    }
+
+    public Deer(int age) {
+        System.out.print("DeerAge");
+    }
+
+    private boolean hasHorns() {
+        return false;
+    }
+
+    public static void main(String[] args) {
+        Deer deer = new Reindeer(5);
+        System.out.println("," + deer.hasHorns());
+    }
+}
+
+class Reindeer extends Deer {
+    public Reindeer(int age) {
+        System.out.print("Reindeer");
+    }
+
+    public boolean hasHorns() {
+        return true;
+    }
+}
+
+class Egret {
+ private String color;
+public Egret() {
+        this("white");
+        }
+public Egret(String color) {
+        this.color = color;
+        }
+public static void main(String[] args) {
+        Egret e = new Egret();
+        System.out.println("Color:" + e.color);
+        }
+}
