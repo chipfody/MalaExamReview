@@ -6,6 +6,9 @@ class Zoo {
     protected String coolMethod(){
         return "Wow Baby";
     }
+    public boolean givesMilk() {
+        return false;
+    }
 
     public static void main(String[] args) {
         Zoo zoo = new Zoo();
