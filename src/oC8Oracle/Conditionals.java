@@ -26,3 +26,38 @@ class Spock {
         System.out.println(mask + " " + count);
     }
 }
+
+interface Vessel{}
+
+interface Toy{}
+
+class Boat implements Vessel{}
+
+class Speedboat extends Boat implements Toy {}
+
+class Tree2 {
+    public static void main(String[] args) {
+        String s = "0";
+        Boat b = new Boat();
+        Boat b2 = new Speedboat();
+        Speedboat s2 = new Speedboat();
+        if ( (b instanceof Vessel) && (b2 instanceof Toy)) s += "1";
+        if ( (s2 instanceof Vessel) && (s2 instanceof Toy)) s += "2";
+        if (b instanceof Toy) s += "3";
+        System.out.println(s);
+    }
+}
+
+class Loop {
+    public static void main(String[] args) {
+        outer:
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 5; j++) {
+                    System.out.println("Hello");
+                    continue outer;
+                }
+                System.out.println("Outer");
+            }
+        System.out.println("Goodbye");
+    }
+}
